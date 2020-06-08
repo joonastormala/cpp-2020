@@ -3,28 +3,28 @@
 //Definitions of class functions with some errors
 
 
-Dog(int a, string n) { 
+Dog::Dog(int a, std::string n) { 
     age_ = a; 
     name_ = n; 
 }
 
 
-Dog::setAge(int a) {
+void Dog::SetAge(int a) {
     age_ = a; 
 }
 
 
-Dog::GetAge() {
+int Dog::GetAge() {
     return age_; 
 }
 
 
-Dog::SetName(string n) {
+void Dog::SetName(std::string n) {
     name_ = n; 
 }
 
 
-Dog::getName() {
+std::string Dog::GetName() {
     return name_; 
 }
 
