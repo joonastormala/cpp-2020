@@ -18,6 +18,6 @@ void Print(const list<string>& list){
 }
 
 void SortAndUnique(list<string>& list){
-    list.unique();
     list.sort();
+    list.unique();
 }
