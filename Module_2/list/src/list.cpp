@@ -6,7 +6,7 @@ using namespace std;
 istream& GetLines(istream& is, list<string>& list){
     string str;
     while(getline(is, str)){
-        if(str.size()>0) list.push_back(str);
+        list.push_back(str);
     }
     return is;
 }
