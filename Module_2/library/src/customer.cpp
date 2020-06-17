@@ -46,7 +46,7 @@ void Customer::ReturnBook(Book &b){
 }
 
 void Customer::Print() const{
-    std::cout   << name_ << ", " << customer_id_ << ", has "
+    std::cout   <<"Customer: " << name_ << ", " << customer_id_ << ", has "
                 << loaned_books_.size() << " books on loan:"
                 << std::endl;
     for(auto i : loaned_books_){
