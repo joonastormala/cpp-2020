@@ -31,37 +31,43 @@ public:
     *  - the status of the book, loaned or not (bool), which is by default false
     *  - due date as a Date structure (Date), which is by default 0-0-0
     */ 
+   Book(const std::string& name, 
+        const std::string& author, 
+        const std::string& isbn,
+        bool loaned = false,
+        Date due =  {0,0,0});
     
 
     /* GetName:
     * returns the Book's name as a string, takes no parameters.
     * This function should not alter the Book object's state, in other words the function should be const.
     */
+   std::string GetName() const;
     
 
     /* GetAuthor:
     * returns the Book's author as a string, takes no parameters. 
     * This function should not alter the Book object's state, in other words the function should be const.
     */
-    
+    std::string GetAuthor() const;
 
     /* GetISBN:
     * returns the Book's ISBN as a string, takes no parameters.
     * This function should not alter the Book object's state, in other words the function should be const.
     */
-    
+    std::string GetISBN() const;
 
     /* GetStatus:
     * returns the Book's status as a bool, takes no parameters.
     * This function should not alter the Book object's state, in other words the function should be const.
     */
-    
+    bool GetStatus() const;
 
     /* GetDueDate:
     * returns the Book's due date, takes no parameters.
     * This function should not alter the Book object's state, in other words the function should be const.
     */
-    
+    Date GetDueDate() const;
 
     /* Loan:
     * sets the due date to current date + 1 month, e.g. loaned on 1.9. => due date 1.10.
@@ -69,14 +75,14 @@ public:
     * returns true if loaning was succesful and false if it was not
     * Hint: there is a function Today in the Date struct that returns the current date
     */
-    
+    bool Loan();
 
     /* Restore:
     * sets the due date to 0-0-0
     * sets the status to false
     * returns nothing
     */
-    
+    void Restore();
 
 
     /* Print:
@@ -86,6 +92,7 @@ public:
 Book: <name>, author: <author>, ISBN: <isbn>, loaned <true/false>, due date: <day>.<month>.<year>\n
     * This function should not alter the Book object's state, in other words the function should be const.
     */
+   void Print() const;
     
 
 private:
