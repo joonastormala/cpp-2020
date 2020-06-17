@@ -50,10 +50,11 @@ void Customer::Print() const{
                 << loaned_books_.size() << " books on loan:"
                 << std::endl;
     for(auto i : loaned_books_){
+        std::string phras = i.GetStatus() ? "true" : "false";
         std::cout << "- Book: " << i.GetName()
                   << ", author: " << i.GetAuthor()
                   << ", ISBN: " << i.GetISBN()
-                  << ", loaned " << i.GetStatus()
+                  << ", loaned " << phras
                   << " due date: " << i.GetDueDate().day << "."
                                   << i.GetDueDate().month << "."
                                   << i.GetDueDate().year

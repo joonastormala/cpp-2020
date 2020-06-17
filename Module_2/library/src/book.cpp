@@ -44,13 +44,14 @@ bool Book::Loan(){
 
 void Book::Restore(){
     due_date_ = {0,0,0};
+    loaned_ = false;
 }
 
 void Book::Print() const{
     std::cout   << "Book: " << name_ 
                 << ", author: "<< author_ 
                 << ", ISBN: " << isbn_ 
-                << ", loaned " << loaned_
+                << ", loaned " << ((loaned_) ? "true" : "false")
                 << ", due date: "   
                     << due_date_.day << "." 
                     << due_date_.month << "." 
