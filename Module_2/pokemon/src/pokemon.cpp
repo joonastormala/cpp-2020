@@ -40,6 +40,6 @@ void PokemonCollection::SortByName(){
 
 void PokemonCollection::SortById(){
     pokemons_.sort([](auto &right, auto &left){
-        return left.second < right.second;
+        return left.second > right.second;
     });
 }
