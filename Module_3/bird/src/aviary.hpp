@@ -45,7 +45,7 @@ public:
      * 
      * Does not modify the object, thus it should be const
      */
-    size_t sizeType() const;
+    size_t Size() const;
 
 
     /* TODO: const and non-const versions of the indexing operator []

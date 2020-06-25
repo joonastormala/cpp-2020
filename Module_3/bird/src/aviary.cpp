@@ -6,7 +6,7 @@ void Aviary::SpeakAll(std::ostream& os) const{
     }
 }
 
-size_t Aviary::sizeType() const{
+size_t Aviary::Size() const{
     return aviary_.size();
 }
 
