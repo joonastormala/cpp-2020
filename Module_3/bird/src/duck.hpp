@@ -17,6 +17,6 @@ class Duck : public Bird{
     public:
     Duck(const std::string& name) : Bird(name){}
     virtual void Speak(std::ostream& os) const {
-        os << this->GetName() << ":  QUACK\n";
+        os << this->GetName() << ": QUACK\n";
     }
 };
