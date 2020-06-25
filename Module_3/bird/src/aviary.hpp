@@ -1,5 +1,6 @@
 #pragma once
 
+#include <list>
 #include <iostream>
 #include "bird.hpp"
 
@@ -21,7 +22,7 @@ public:
      * is transferred. When the aviary is destroyed, all
      * the birds are destroyed too.
      */
-    
+    void Add(Bird* b) { aviary_.push_back(b); }
     
     /* TODO: method SpeakAll
      * Arguments: A reference to ostream.
@@ -31,6 +32,7 @@ public:
      * 
      * Does not modify the object, thus it should be const
      */
+    void SpeakAll(std::ostream &os) const;
     
 
     // Create a new type alias sizeType
@@ -43,7 +45,7 @@ public:
      * 
      * Does not modify the object, thus it should be const
      */
-    
+    size_t sizeType() const;
 
 
     /* TODO: const and non-const versions of the indexing operator []
@@ -53,11 +55,14 @@ public:
      * Returns: const Bird* for the const version and
      *  Bird* for the non-const version.
     */
-    
+    Bird* operator[](size_t i);
+
+    const Bird* operator[](size_t i) const;
     
     /* TODO: destructor */
+    ~Aviary();
     
 private:
-    // TODO: the needed variables
+    std::list<Bird*> aviary_;
       
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "bird.hpp"
+#include <ostream>
 
 /* TODO: Duck class.
  * It has a constructor that takes a string as a parameter, which is the duck's name.
@@ -12,3 +13,10 @@
  * implemented in this header file.
 */
 
+class Duck : public Bird{
+    public:
+    Duck(const std::string& name) : Bird(name){}
+    virtual void Speak(std::ostream& os) const {
+        os << this->GetName() << ":  QUACK\n";
+    }
+};
