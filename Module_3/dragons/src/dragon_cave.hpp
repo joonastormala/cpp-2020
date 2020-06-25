@@ -1,5 +1,19 @@
 #pragma once
+#include "dragon.hpp"
 
+class DragonCave{
+public:
+    DragonCave();
+    ~DragonCave();
+    const std::list<Dragon*>& GetDragons() const;
+    void Accommodate(Dragon* d);
+    void Evict(const std::string& n);
+    friend std::ostream& operator<<(std::ostream& os, const DragonCave& d);
+    DragonCave(const DragonCave&) = delete;
+    DragonCave& operator=(const DragonCave&) = delete;
+private:
+    std::list<Dragon*> dragons_;
+};
 /* TODO: class DragonCave
  * Description:
  * ------------

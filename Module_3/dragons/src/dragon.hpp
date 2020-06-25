@@ -30,6 +30,31 @@ struct Food {
   std::string name;
 };
 
+class Dragon {
+public:
+  Dragon(const std::string& name, size_t age, size_t size);
+  
+  virtual ~Dragon() {};
+
+  const std::string& GetName() const { return name_; }
+
+  size_t GetAge() const { return age_; }
+
+  size_t GetSize() const { return size_; }
+
+  const std::list<Treasure>& GetTreasures() const { return treasures_; }
+
+  virtual void Eat(std::list<Food>& f) = 0;
+
+  virtual void Hoard(std::list<Treasure>& t) = 0;
+
+  friend std::ostream& operator<<(std::ostream& os, const Dragon& d);
+protected:
+  std::string name_;
+  size_t age_;
+  size_t size_;
+  std::list<Treasure> treasures_;
+};
 /* TODO: class Dragon
  * ------------
  * Description:
