@@ -64,5 +64,6 @@ public:
     
 private:
     std::list<Bird*> aviary_;
-      
+    Aviary(const Aviary&);
+    Aviary& operator=(const Aviary&);
 };
