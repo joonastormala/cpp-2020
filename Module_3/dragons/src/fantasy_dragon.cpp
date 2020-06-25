@@ -17,7 +17,7 @@ void FantasyDragon::Hoard(std::list<Treasure>& t){
     for(std::list<Treasure>::iterator i = t.begin(); i != t.end();){
         if(i->type == Jewellery) {
             treasures_.push_back(*i);
-            std::cout << "Fantasy dragon recieved: " << i->name << std::endl;
+            std::cout << "Fantasy dragon received: " << i->name << std::endl;
             i = t.erase(i);
         } else i++;
     }

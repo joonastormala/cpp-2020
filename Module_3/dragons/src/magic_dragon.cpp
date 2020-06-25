@@ -17,7 +17,7 @@ void MagicDragon::Hoard(std::list<Treasure>& t){
     for(std::list<Treasure>::iterator i = t.begin(); i != t.end();){
         if(i->type == Potions) {
             treasures_.push_back(*i);
-            std::cout << "Magic dragon recieved: " << i->name << std::endl;
+            std::cout << "Magic dragon received: " << i->name << std::endl;
             i = t.erase(i);
         } else i++;
     }
