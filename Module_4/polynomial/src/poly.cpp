@@ -98,7 +98,12 @@ bool operator!=(const Poly& a, const Poly& b){
 }
 
 std::istream& operator>>(std::istream& is, Poly& p){
-    while (!is.eof())
+    char c;
+    if(is.peek()==' '){
+        is.get(c);
+        is.get(c);
+    }
+    while (!is.eof() || is.peek()!= ' ')
     {
         int mult,exp;
         char ph;
