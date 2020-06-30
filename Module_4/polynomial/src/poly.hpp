@@ -60,11 +60,12 @@
 
 class Poly {
 public:
+    typedef std::map<int,int> Values;
     /* Use these to traverse map in the order you want.
      * Reverse iterators might be useful when you need to start from the highest exponent.
      * for more information see http://www.cplusplus.com/reference/map/map/
      */
-
+    
     // Normal iterators (const and non-const)
     std::map<int, int>::const_iterator cbegin() const { return values_.cbegin(); }
     std::map<int, int>::const_iterator cend() const { return values_.cend(); }
