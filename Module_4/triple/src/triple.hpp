@@ -1,3 +1,5 @@
+#ifndef TRIPLE_H
+#define TRIPLE_H
 /* Add include guards here */
 #include <iostream>
 #include <cstdlib>
@@ -120,3 +122,4 @@ template<typename A, typename B, typename C>
 
 /* Remember the endif here to close the header guards */
 
+#endif
