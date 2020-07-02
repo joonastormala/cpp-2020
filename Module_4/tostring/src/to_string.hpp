@@ -1,4 +1,8 @@
 #pragma once
+#include <list>
+#include <vector>
+#include <string>
+#include <sstream>
 
 /* As an introduction to templates you will write and specialize a template function 
  * for formatting the contents of a container (string, vector, list, ...) into a string, 
@@ -26,4 +30,37 @@
  * This would allow printing containers that contain other containers, etc.
  */
 
+template <typename T>
+std::string ToString(T input) {
+    std::stringstream ss;
+    if(std::is_same<T, std::string>::value){
+        ss << "\"";
+        for(auto it = input.begin(); it != input.end(); it++){
+            ss << *it;
+        }
+        ss << "\"";
+    } else {
+        auto it = input.cbegin();
+        ss << "{ ";
+        ss << *it;
+        it++;
+        for(; it != input.cend(); it++){
+            ss << ", " << *it;
+        }
+        ss << " }";
+    }
+    return ss.str();
+}
 
+template <typename Iterator>
+std::string ToString(Iterator start, Iterator end){
+    std::stringstream ss;
+    ss << "{ ";
+    if(start != end) { ss << *start; start++;}
+    for(; start != end; start++){
+        ss << ", ";
+        ss << *start;
+    }
+    ss << " }";
+    return ss.str();
+}
