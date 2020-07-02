@@ -34,11 +34,11 @@
             c_ = t.Third();
             return *this;
         }
-        Triple(const Triple&t){
-            a_ = t.First();
-            b_ = t.Second();
-            c_ = t.Third();
-        }
+        // Triple(const Triple&t){
+        //     a_ = t.First();
+        //     b_ = t.Second();
+        //     c_ = t.Third();
+        // }
 
      private:
         T1 a_;
