@@ -93,7 +93,7 @@ template<typename A, typename B, typename C>
     }
 template<typename A, typename B, typename C>
     std::ostream &operator<<(std::ostream& os, const Triple<A,B,C>& t){
-        os << "[" << t.First() << "," << t.Second() << "," << t.Third() << "]";
+        os << "[" << t.First() << ", " << t.Second() << ", " << t.Third() << "]";
         return os;
     }
 /* Operator overloads:
