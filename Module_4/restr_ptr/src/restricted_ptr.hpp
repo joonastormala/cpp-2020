@@ -2,6 +2,68 @@
 
 #include "restricted_ref_counter.hpp"
 
+template <typename T>
+class RestrictedPtr
+{
+public:
+    RestrictedPtr() : data_(nullptr)
+    {
+        count_ = new RestrictedRefCounter();
+        count_->Increase();
+    }
+    RestrictedPtr(T *data) : data_(data)
+    {
+        count_ = new RestrictedRefCounter();
+        count_->Increase();
+    }
+    ~RestrictedPtr()
+    {
+        if (count_->Decrease() == 0)
+        {
+            delete data_;
+            delete count_;
+        }
+    }
+    RestrictedPtr(RestrictedPtr &rptr)
+    {
+        if (rptr.count_->Increase())
+        {
+            data_ = rptr.data_;
+            count_ = rptr.count_;
+        }
+        else
+        {
+            data_ = nullptr;
+            count_ = new RestrictedRefCounter();
+            count_->Increase();
+        }
+    }
+    T &GetData() { return *data_; }
+    T *GetPointer() { return data_; }
+    int GetRefCount() { return (*count_).GetCount(); }
+
+    RestrictedPtr &operator=(RestrictedPtr &rptr)
+    {
+        if (count_->GetCount() == 1)
+        {
+            delete count_;
+        }
+        if (rptr.count_->Increase())
+        {
+            count_ = rptr.count_;
+            data_ = rptr.data_;
+            return *this;
+        }
+        count_ = new RestrictedRefCounter();
+        count_->Increase();
+        data_ = nullptr;
+        return *this;
+    }
+
+private:
+    T *data_;
+    RestrictedRefCounter *count_;
+};
 /*
     Implement a class RestrictedPtr that holds a pointer of any type with at least the following members:
         - default constructor (takes no parameters)
