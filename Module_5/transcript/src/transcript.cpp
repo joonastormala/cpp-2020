@@ -37,6 +37,6 @@ list<pair<string, size_t>> TranscriptRegistry::FindCourseResults(const string &c
     return ret;
 }
 
-const list<Transcript>& TranscriptRegistry::GetTranscripts(){
+const list<Transcript>& TranscriptRegistry::GetTranscripts() const{
     return data_;
 }
