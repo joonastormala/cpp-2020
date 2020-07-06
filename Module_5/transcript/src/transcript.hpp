@@ -10,6 +10,17 @@ struct Transcript {
     std::list<std::pair<std::string, size_t>> grades; // List of (course, grade) pairs
 };
 
+class TranscriptRegistry{
+public:
+    TranscriptRegistry() { };
+    void Add(const Transcript &t);
+    void RemoveById(const std::string &id);
+    std::list<Transcript>::const_iterator FindTranscript(const std::string &id) const;
+    std::list<std::pair<std::string, size_t>> FindCourseResults(const std::string &course) const;
+    const std::list<Transcript>& GetTranscripts();
+private:
+    std::list<Transcript> data_;
+};
 /* TODO: class TranscriptRegistry
  * ------------
  * Description:
