@@ -1,5 +1,41 @@
 #pragma once
+#include "string_printer.hpp"
+class DiagonalPrinter : public StringPrinter
+{
+public:
+    DiagonalPrinter(std::string start = "", std::string end = "", std::ostream &out = std::cout)
+        : StringPrinter(out), start_(start), end_(end) {}
+    DiagonalPrinter *Clone() const
+    {
+        return new DiagonalPrinter(start_, end_, os_);
+    }
+    virtual StringPrinter &operator()(const std::string &arg)
+    {
+        int size = arg.size();
+        if (start_.size() > 0)
+            os_ << start_ << std::endl;
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                os_ << " ";
+            }
+            os_ << arg[i];
+            for (int j = 0; j < size - i - 1; j++)
+            {
+                os_ << " ";
+            }
+            os_ << std::endl;
+        }
+        if (end_.size() > 0)
+            os_ << end_ << std::endl;
+        return *this;
+    }
 
+private:
+    std::string start_;
+    std::string end_;
+};
 /* TODO: class DiagonalPrinter
  * ------------
  * Description:
@@ -32,4 +68,3 @@ l        \n
  * constructor. If the first line is empty, it is not printed. The same applies
  * to the last line.
  */
-

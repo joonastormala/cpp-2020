@@ -1,5 +1,26 @@
 #pragma once
-
+#include <iostream>
+#include <ostream>
+#include <string>
+#include "string_printer.hpp"
+#include <sstream>
+#include <stdexcept>
+#include <iterator>
+class StandardPrinter : public StringPrinter
+{
+public:
+    StandardPrinter(std::ostream &out = std::cout)
+        : StringPrinter(out) {}
+    StandardPrinter *Clone() const
+    {
+        return new StandardPrinter(os_);
+    }
+    virtual StringPrinter &operator()(const std::string &arg)
+    {
+        os_ << arg << std::endl;
+        return *this;
+    }
+};
 /* TODO: class StandardPrinter
  * ------------
  * Description:

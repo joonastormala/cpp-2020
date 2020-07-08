@@ -1,5 +1,16 @@
 #pragma once
+class StringPrinter
+{
+public:
+    StringPrinter(std::ostream &ostream = std::cout)
+        : os_(ostream) {}
+    virtual ~StringPrinter() {}
+    virtual StringPrinter *Clone() const = 0;
+    virtual StringPrinter &operator()(const std::string &arg) = 0;
 
+protected:
+    std::ostream &os_;
+};
 /* TODO: abstract class StringPrinter
  * ------------
  * Description:
