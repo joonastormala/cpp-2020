@@ -1,3 +1,54 @@
+#pragma once
+#include <iostream>
+#include <sstream>
+
+namespace WeirdMemoryAllocator
+{
+    class RestrictedPtrException : public std::exception
+    {
+    public:
+        RestrictedPtrException(const std::string name) : ptrn(name) {}
+        virtual const std::string GetError() const = 0;
+        virtual const std::string &GetUse() const = 0;
+
+    protected:
+        const std::string ptrn;
+    };
+    class RestrictedCopyException : public RestrictedPtrException
+    {
+    public:
+        RestrictedCopyException(const std::string &name)
+            : RestrictedPtrException(name) {}
+        const std::string &GetUse() const
+        {
+            return ptrn;
+        }
+        const std::string GetError() const
+        {
+            std::stringstream ret;
+            ret << GetUse() << ": Too many copies of RestrictedPtr!" << std::flush;
+            ;
+            return ret.str();
+        }
+    };
+    class RestrictedNullException : public RestrictedPtrException
+    {
+    public:
+        RestrictedNullException(const std::string &name)
+            : RestrictedPtrException(name) {}
+        const std::string &GetUse() const
+        {
+            return ptrn;
+        }
+        const std::string GetError() const
+        {
+            std::stringstream ret;
+            ret << GetUse() << ": nullptr exception!";
+            return ret.str();
+        }
+    };
+} // namespace WeirdMemoryAllocator
+
 /* TODO: classes RestrictedPtrException, RestrictedCopyException 
  * and RestrictedNullException
  * ------------

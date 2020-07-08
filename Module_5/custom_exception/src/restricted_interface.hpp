@@ -1,3 +1,42 @@
+#pragma once
+#include "restricted_ptr.hpp"
+
+using namespace WeirdMemoryAllocator;
+template <typename T>
+RestrictedPtr<T> MakeRestricted(T *pntr)
+{
+    return RestrictedPtr(pntr, "RestrictedPtr instance");
+}
+template <typename T>
+std::ostream &operator<<(std::ostream &os, RestrictedPtr<T> &rpntr)
+{
+    try
+    {
+        os << rpntr.GetData() << std::endl;
+    }
+    catch (RestrictedPtrException &ex)
+    {
+        os << ex.GetError() << std::endl;
+    }
+    return os;
+}
+template <typename T>
+RestrictedPtr<T> CopyRestricted(RestrictedPtr<T> &rpntr)
+{
+    RestrictedPtr<T> temp;
+    try
+    {
+        temp = rpntr;
+        return temp;
+    }
+    catch (RestrictedPtrException &ex)
+    {
+
+        std::cout << ex.GetError() << std::endl;
+        return temp;
+    }
+}
+
 /* TODO:
  *
  * MakeRestricted: a template function that takes any type of

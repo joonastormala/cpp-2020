@@ -1,3 +1,82 @@
+#pragma once
+#include "restricted_ref_counter.hpp"
+
+namespace WeirdMemoryAllocator
+{
+    template <typename T>
+    class RestrictedPtr
+    {
+    public:
+        RestrictedPtr() : data_(nullptr),ptrn("nullptr")
+        {
+            count_ = new RestrictedRefCounter();
+            count_->Increase();
+        }
+        RestrictedPtr(T *data, std::string name) : data_(data), ptrn(name)
+        {
+            count_ = new RestrictedRefCounter();
+            count_->Increase();
+        }
+        ~RestrictedPtr()
+        {
+            if (count_->Decrease() == 0)
+            {
+                delete data_;
+                delete count_;
+            }
+        }
+        RestrictedPtr(RestrictedPtr &rptr)
+        {
+            if (rptr.count_->Increase())
+            {
+                data_ = rptr.data_;
+                count_ = rptr.count_;
+                ptrn = rptr.ptrn;
+            }
+            else
+            {
+                throw RestrictedCopyException(rptr.ptrn);
+            }
+        }
+        T &GetData()
+        {
+            if (data_ == nullptr)
+            {
+                throw RestrictedNullException(ptrn);
+            }
+            else
+                return *data_;
+        }
+        T *GetPointer() { return data_; }
+        int GetRefCount() { return (*count_).GetCount(); }
+
+        RestrictedPtr &operator=(RestrictedPtr &rptr)
+        {
+            if (count_->GetCount() == 1)
+            {
+                delete count_;
+            }
+            if (rptr.count_->Increase())
+            {
+                ptrn = rptr.ptrn;
+                count_ = rptr.count_;
+                data_ = rptr.data_;
+                return *this;
+            }
+            count_ = new RestrictedRefCounter();
+            count_->Increase();
+            data_ = nullptr;
+            ptrn = "nullptr";
+            throw RestrictedCopyException(rptr.ptrn);
+            return *this;
+        }
+
+    private:
+        T *data_;
+        RestrictedRefCounter *count_;
+        std::string ptrn;
+    };
+} // namespace WeirdMemoryAllocator
 /* 
  * Copy your implementation from the last round here (or wait for
  * the example answer to come out and copy that) and wrap it inside a 
@@ -21,4 +100,3 @@
  * 
  * The class shouldn't leak any memory.
 */
-		
