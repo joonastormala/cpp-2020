@@ -2,7 +2,8 @@
 
 #include "person.hpp"
 
-int main(void) {
+int main(void)
+{
     /** Person class' constructor takes two arguments: name and birthyear **/
     Person kalle("Kalle Kankkunen", 1996);
     Person ville("Ville Vinkkunen", 1992);

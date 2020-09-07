@@ -3,12 +3,13 @@
 
 #include "bank_account.hpp"
 
-int main(void) {
+int main(void)
+{
     BankAccount rasse_account("Rasse Rikas", "21345");
-    std::cout << "Owner: " <<  rasse_account.GetOwner() << std::endl;
+    std::cout << "Owner: " << rasse_account.GetOwner() << std::endl;
     std::cout << "Number: " << rasse_account.GetNumber() << std::endl;
     std::cout << "Balance: " << rasse_account.GetBalance() << std::endl;
-    
+
     std::cout << "Depositing 100 to account." << std::endl;
     rasse_account.Deposit(100.0);
     std::cout << "Balance: " << rasse_account.GetBalance() << std::endl;

@@ -3,15 +3,16 @@
 
 #include <string>
 
-class BankAccount {
+class BankAccount
+{
 public:
     /* BankAccount:
      * the constructor of the BankAccount class, takes the following parameters:
      * the account's owner (string const&), 
      * the account's number (string const&) 
      * and the account's balance (double) which is 0.0 by default. 
-     */ 
-    BankAccount(std::string const& owner, std::string const& account_number, double balance = 0.0);
+     */
+    BankAccount(std::string const &owner, std::string const &account_number, double balance = 0.0);
 
     /* GetOwner:
      * Returns the BankAccount's owner as a string, takes no parameters. 
@@ -64,6 +65,6 @@ private:
  * the function adds the parameter amount to the target account's balance, 
  * reduces the amount from the source account's balance and returns true.
  */
-bool Transfer(BankAccount& source_account, BankAccount& target_account, double amount);
+bool Transfer(BankAccount &source_account, BankAccount &target_account, double amount);
 
 #endif

@@ -7,7 +7,7 @@ namespace WeirdMemoryAllocator
     class RestrictedPtr
     {
     public:
-        RestrictedPtr() : data_(nullptr),ptrn("nullptr")
+        RestrictedPtr() : data_(nullptr), ptrn("nullptr")
         {
             count_ = new RestrictedRefCounter();
             count_->Increase();

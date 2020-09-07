@@ -2,28 +2,36 @@
 
 #include <vector>
 
-int GetMin(std::vector<int> v) {
+int GetMin(std::vector<int> v)
+{
     int min = 1000;
-    for(unsigned int i = 0; i < v.size(); i++){
-        if(v[i] < min) min = v[i];
+    for (unsigned int i = 0; i < v.size(); i++)
+    {
+        if (v[i] < min)
+            min = v[i];
     }
-    return min; 
+    return min;
 }
 
-int GetMax(std::vector<int> v) {
+int GetMax(std::vector<int> v)
+{
     int max = -1000;
-    for(unsigned int i = 0; i < v.size(); i++){
-        if(v[i] > max) max = v[i];
+    for (unsigned int i = 0; i < v.size(); i++)
+    {
+        if (v[i] > max)
+            max = v[i];
     }
-    return max; 
+    return max;
 }
 
-double GetAvg(std::vector<int> v) {
+double GetAvg(std::vector<int> v)
+{
     double numbers = 0;
     unsigned int i = 0;
-    for(; i < v.size(); i++){
+    for (; i < v.size(); i++)
+    {
         numbers += v[i];
     }
-    numbers = numbers/i;
-    return numbers; 
+    numbers = numbers / i;
+    return numbers;
 }

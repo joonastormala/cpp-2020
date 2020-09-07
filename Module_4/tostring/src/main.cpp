@@ -2,7 +2,8 @@
 #include <iostream>
 #include <set>
 
-int main() {
+int main()
+{
     std::string s = "foobar";
     std::cout << "ToString(s) = " << ToString<std::string>(s) << std::endl;
     std::cout << "ToString(s.begin(), s.end()) = " << ToString(s.begin(), s.end()) << std::endl;
@@ -13,4 +14,3 @@ int main() {
     std::cout << "ToString(v) = " << ToString(v) << std::endl;
     std::cout << "ToString(v.begin(), v.end()) = " << ToString(v.begin(), v.end()) << std::endl;
 }
-

@@ -3,7 +3,8 @@
 #include "aircraft.hpp"
 #include "boat.hpp"
 
-int main(void) {
+int main(void)
+{
     Register r;
     r.Load("readtester.txt");
     r.Print();

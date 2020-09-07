@@ -13,4 +13,3 @@ int GetMax(std::vector<int> v);
 double GetAvg(std::vector<int> v);
 
 #endif
-

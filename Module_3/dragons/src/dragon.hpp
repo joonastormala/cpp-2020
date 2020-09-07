@@ -5,50 +5,56 @@
 #include <iostream>
 
 /* Enumeration types for the different treasures */
-enum TreasureType {
+enum TreasureType
+{
   Jewellery,
   Wisdom,
   Potions
 };
 
 /* Implementation of Treasure */
-struct Treasure {
+struct Treasure
+{
   TreasureType type;
   std::string name;
 };
 
 /* Enumeration types for the different foods */
-enum FoodType {
+enum FoodType
+{
   PeopleFood,
   People,
   Herbs
 };
 
 /* Implementation of Food */
-struct Food {
+struct Food
+{
   FoodType type;
   std::string name;
 };
 
-class Dragon {
+class Dragon
+{
 public:
-  Dragon(const std::string& name, size_t age, size_t size);
-  
-  virtual ~Dragon() {};
+  Dragon(const std::string &name, size_t age, size_t size);
 
-  const std::string& GetName() const { return name_; }
+  virtual ~Dragon(){};
+
+  const std::string &GetName() const { return name_; }
 
   size_t GetAge() const { return age_; }
 
   size_t GetSize() const { return size_; }
 
-  const std::list<Treasure>& GetTreasures() const { return treasures_; }
+  const std::list<Treasure> &GetTreasures() const { return treasures_; }
 
-  virtual void Eat(std::list<Food>& f) = 0;
+  virtual void Eat(std::list<Food> &f) = 0;
 
-  virtual void Hoard(std::list<Treasure>& t) = 0;
+  virtual void Hoard(std::list<Treasure> &t) = 0;
 
-  friend std::ostream& operator<<(std::ostream& os, const Dragon& d);
+  friend std::ostream &operator<<(std::ostream &os, const Dragon &d);
+
 protected:
   std::string name_;
   size_t age_;
@@ -97,7 +103,6 @@ protected:
  * (std::list<Treasure>).
  */
 
-
 /* TODO: operator <<
  * Description:
  * An overloaded << stream operator for printing Dragons to an parameter ostream.
@@ -116,4 +121,3 @@ Treasures:\n
  * Returns:
  * A reference to the output stream given as a parameter.
  */
-

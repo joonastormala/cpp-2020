@@ -4,20 +4,23 @@
 #include <list>
 #include <utility>
 
-struct Transcript {
+struct Transcript
+{
     std::string name; // Name of the transcript
     std::string student_id;
     std::list<std::pair<std::string, size_t>> grades; // List of (course, grade) pairs
 };
 
-class TranscriptRegistry{
+class TranscriptRegistry
+{
 public:
-    TranscriptRegistry() { };
+    TranscriptRegistry(){};
     void Add(const Transcript &t);
     void RemoveById(const std::string &id);
     std::list<Transcript>::const_iterator FindTranscript(const std::string &id) const;
     std::list<std::pair<std::string, size_t>> FindCourseResults(const std::string &course) const;
-    const std::list<Transcript>& GetTranscripts() const;
+    const std::list<Transcript> &GetTranscripts() const;
+
 private:
     std::list<Transcript> data_;
 };

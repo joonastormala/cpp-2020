@@ -2,12 +2,13 @@
 
 #include "dragon.hpp"
 
-class MagicDragon : public Dragon {
-    public:
-        MagicDragon(const std::string& name, size_t age, size_t size);
+class MagicDragon : public Dragon
+{
+public:
+    MagicDragon(const std::string &name, size_t age, size_t size);
 
-        virtual void Eat(std::list<Food>& f);
-        virtual void Hoard(std::list<Treasure>& t);
+    virtual void Eat(std::list<Food> &f);
+    virtual void Hoard(std::list<Treasure> &t);
 };
 
 /* TODO: class MagicDragon

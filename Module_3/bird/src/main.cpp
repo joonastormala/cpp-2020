@@ -6,11 +6,13 @@
 #include "owl.hpp"
 #include "duck.hpp"
 
-void ConstTest(const Aviary& a) {
+void ConstTest(const Aviary &a)
+{
     a[1]->Speak(std::cout);
 }
 
-int main() {
+int main()
+{
     /* The output of the program should be this:
 Esko: QUACK
 Orly: WHUU

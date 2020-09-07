@@ -1,13 +1,15 @@
 #include "list.hpp"
-#include <cstdlib>  // For EXIT_FAILURE macro
+#include <cstdlib> // For EXIT_FAILURE macro
 #include <fstream>
 #include <iostream>
 
-int main() {
+int main()
+{
     std::list<std::string> list;
     std::ifstream f("main.cpp");
     // Read the file into list
-    if (!f.is_open() || !GetLines(f, list).eof()) {
+    if (!f.is_open() || !GetLines(f, list).eof())
+    {
         std::cerr << "Error reading main.cpp" << std::endl;
         return EXIT_FAILURE;
     }
@@ -21,4 +23,3 @@ int main() {
     // Print again
     Print(list);
 }
-

@@ -7,9 +7,8 @@
 void CMDReader();
 // The & means that the vector is passed as a reference,
 // which you'll learn more about a bit later
-void Adder(std::vector<std::string>& names);
-void Remover(std::vector<std::string>& names);
-void Printer(std::vector<std::string>& names);
+void Adder(std::vector<std::string> &names);
+void Remover(std::vector<std::string> &names);
+void Printer(std::vector<std::string> &names);
 
 #endif
-

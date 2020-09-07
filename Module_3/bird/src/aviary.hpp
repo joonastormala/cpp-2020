@@ -8,7 +8,8 @@
  * If somebody tries to copy an instance of this class,
  * the compilation must fail i.e. TODO: disallow copying
  */
-class Aviary {
+class Aviary
+{
 public:
     Aviary() {}
 
@@ -22,8 +23,8 @@ public:
      * is transferred. When the aviary is destroyed, all
      * the birds are destroyed too.
      */
-    void Add(Bird* b) { aviary_.push_back(b); }
-    
+    void Add(Bird *b) { aviary_.push_back(b); }
+
     /* TODO: method SpeakAll
      * Arguments: A reference to ostream.
      * Description: Calls the Speak method with the given parameter  
@@ -33,7 +34,6 @@ public:
      * Does not modify the object, thus it should be const
      */
     void SpeakAll(std::ostream &os) const;
-    
 
     // Create a new type alias sizeType
 
@@ -47,7 +47,6 @@ public:
      */
     size_t Size() const;
 
-
     /* TODO: const and non-const versions of the indexing operator []
      * Arguments: size_t
      * Description: Returns a pointer to the bird at the index given as a parameter.
@@ -55,15 +54,15 @@ public:
      * Returns: const Bird* for the const version and
      *  Bird* for the non-const version.
     */
-    Bird* operator[](size_t i);
+    Bird *operator[](size_t i);
 
-    const Bird* operator[](size_t i) const;
-    
+    const Bird *operator[](size_t i) const;
+
     /* TODO: destructor */
     ~Aviary();
-    
+
 private:
-    std::list<Bird*> aviary_;
-    Aviary(const Aviary&);
-    Aviary& operator=(const Aviary&);
+    std::list<Bird *> aviary_;
+    Aviary(const Aviary &);
+    Aviary &operator=(const Aviary &);
 };

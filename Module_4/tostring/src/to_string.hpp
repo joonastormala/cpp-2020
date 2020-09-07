@@ -31,20 +31,26 @@
  */
 
 template <typename T>
-std::string ToString(T input) {
+std::string ToString(T input)
+{
     std::stringstream ss;
-    if(std::is_same<T, std::string>::value){
+    if (std::is_same<T, std::string>::value)
+    {
         ss << "\"";
-        for(auto it = input.begin(); it != input.end(); it++){
+        for (auto it = input.begin(); it != input.end(); it++)
+        {
             ss << *it;
         }
         ss << "\"";
-    } else {
+    }
+    else
+    {
         auto it = input.cbegin();
         ss << "{ ";
         ss << *it;
         it++;
-        for(; it != input.cend(); it++){
+        for (; it != input.cend(); it++)
+        {
             ss << ", " << *it;
         }
         ss << " }";
@@ -53,11 +59,17 @@ std::string ToString(T input) {
 }
 
 template <typename Iterator>
-std::string ToString(Iterator start, Iterator end){
+std::string ToString(Iterator start, Iterator end)
+{
     std::stringstream ss;
     ss << "{ ";
-    if(start != end) { ss << *start; start++;}
-    for(; start != end; start++){
+    if (start != end)
+    {
+        ss << *start;
+        start++;
+    }
+    for (; start != end; start++)
+    {
         ss << ", ";
         ss << *start;
     }

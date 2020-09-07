@@ -58,14 +58,15 @@
  * 5. Input & output operators.
  */
 
-class Poly {
+class Poly
+{
 public:
-    typedef std::map<int,int> Values;
+    typedef std::map<int, int> Values;
     /* Use these to traverse map in the order you want.
      * Reverse iterators might be useful when you need to start from the highest exponent.
      * for more information see http://www.cplusplus.com/reference/map/map/
      */
-    
+
     // Normal iterators (const and non-const)
     std::map<int, int>::const_iterator cbegin() const { return values_.cbegin(); }
     std::map<int, int>::const_iterator cend() const { return values_.cend(); }
@@ -73,7 +74,7 @@ public:
     std::map<int, int>::const_iterator end() const { return values_.end(); }
     std::map<int, int>::iterator begin() { return values_.begin(); }
     std::map<int, int>::iterator end() { return values_.end(); }
-    
+
     // Reverse iterators (const and non-const)
     std::reverse_iterator<std::map<int, int>::const_iterator> crbegin() const { return values_.crbegin(); }
     std::reverse_iterator<std::map<int, int>::const_iterator> crend() const { return values_.crend(); }
@@ -81,29 +82,29 @@ public:
     std::reverse_iterator<std::map<int, int>::const_iterator> rend() const { return values_.rend(); }
     std::reverse_iterator<std::map<int, int>::iterator> rbegin() { return values_.rbegin(); }
     std::reverse_iterator<std::map<int, int>::iterator> rend() { return values_.rend(); }
-    
+
     int operator[](int exp) const;
-    int& operator[](int exp) { return values_[exp]; }
-    
+    int &operator[](int exp) { return values_[exp]; }
+
     // TODO: implement the following operators in poly.cpp
-    Poly& operator+=(const Poly& b);
-    Poly& operator-=(const Poly& b);
+    Poly &operator+=(const Poly &b);
+    Poly &operator-=(const Poly &b);
+
 private:
     std::map<int, int> values_;
 };
 
 // TODO: implement all of the following in poly.cpp
-std::istream& operator>>(std::istream& is, Poly& p);
-std::ostream& operator<<(std::ostream& os, const Poly& p);
+std::istream &operator>>(std::istream &is, Poly &p);
+std::ostream &operator<<(std::ostream &os, const Poly &p);
 
-Poly operator+(const Poly& a, const Poly& b);
-Poly operator-(const Poly& a, const Poly& b);
-Poly operator-(const Poly& p);
+Poly operator+(const Poly &a, const Poly &b);
+Poly operator-(const Poly &a, const Poly &b);
+Poly operator-(const Poly &p);
 
-bool operator<(const Poly& a, const Poly& b);
-bool operator==(const Poly& a, const Poly& b);
-bool operator>(const Poly& a, const Poly& b);
-bool operator!=(const Poly& a, const Poly& b);
+bool operator<(const Poly &a, const Poly &b);
+bool operator==(const Poly &a, const Poly &b);
+bool operator>(const Poly &a, const Poly &b);
+bool operator!=(const Poly &a, const Poly &b);
 
 #endif
-

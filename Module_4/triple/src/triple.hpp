@@ -20,31 +20,33 @@
  * The Triple class should also support the copy constructor, and assignment
  * operations.
  */
- template<typename T1, typename T2, typename T3>
- class Triple {
-     public:
-        Triple(const T1& a, const T2& b, const T3& c) : a_(a), b_(b), c_(c) { }
-        const T1& First() const { return a_; }
-        const T2& Second() const { return b_; }
-        const T3& Third() const { return c_; }
+template <typename T1, typename T2, typename T3>
+class Triple
+{
+public:
+    Triple(const T1 &a, const T2 &b, const T3 &c) : a_(a), b_(b), c_(c) {}
+    const T1 &First() const { return a_; }
+    const T2 &Second() const { return b_; }
+    const T3 &Third() const { return c_; }
 
-        Triple &operator=(const Triple &t){
-            a_ = t.First();
-            b_ = t.Second();
-            c_ = t.Third();
-            return *this;
-        }
-        // Triple(const Triple&t){
-        //     a_ = t.First();
-        //     b_ = t.Second();
-        //     c_ = t.Third();
-        // }
+    Triple &operator=(const Triple &t)
+    {
+        a_ = t.First();
+        b_ = t.Second();
+        c_ = t.Third();
+        return *this;
+    }
+    // Triple(const Triple&t){
+    //     a_ = t.First();
+    //     b_ = t.Second();
+    //     c_ = t.Third();
+    // }
 
-     private:
-        T1 a_;
-        T2 b_;
-        T3 c_;
-    };
+private:
+    T1 a_;
+    T2 b_;
+    T3 c_;
+};
 
 /* Public member functions:
  * ------------------------
@@ -74,28 +76,33 @@
  * the same type.
  * Hint: specialisation can help you here.
  */
-template<typename T>
-bool IsHomogenous(const Triple<T,T,T>){
+template <typename T>
+bool IsHomogenous(const Triple<T, T, T>)
+{
     return true;
 }
-template<typename A, typename B, typename C>
-bool IsHomogenous(const Triple<A,B,C>){
+template <typename A, typename B, typename C>
+bool IsHomogenous(const Triple<A, B, C>)
+{
     return false;
 }
 
-template<typename A, typename B, typename C>
-    bool operator==(const Triple<A,B,C>& f, const Triple<A,B,C>& s) {
-        return (f.First() == s.First() && f.Second() == s.Second() && f.Third() == s.Third());
-    }
-template<typename A, typename B, typename C>
-    bool operator!=(const Triple<A,B,C>& f, const Triple<A,B,C>& s) {
-        return !(f==s);
-    }
-template<typename A, typename B, typename C>
-    std::ostream &operator<<(std::ostream& os, const Triple<A,B,C>& t){
-        os << "[" << t.First() << ", " << t.Second() << ", " << t.Third() << "]";
-        return os;
-    }
+template <typename A, typename B, typename C>
+bool operator==(const Triple<A, B, C> &f, const Triple<A, B, C> &s)
+{
+    return (f.First() == s.First() && f.Second() == s.Second() && f.Third() == s.Third());
+}
+template <typename A, typename B, typename C>
+bool operator!=(const Triple<A, B, C> &f, const Triple<A, B, C> &s)
+{
+    return !(f == s);
+}
+template <typename A, typename B, typename C>
+std::ostream &operator<<(std::ostream &os, const Triple<A, B, C> &t)
+{
+    os << "[" << t.First() << ", " << t.Second() << ", " << t.Third() << "]";
+    return os;
+}
 /* Operator overloads:
  * -------------------
  * The triple class should support the following operators:

@@ -5,22 +5,21 @@
 #include <vector>
 #include "book.hpp"
 
-class Customer {
+class Customer
+{
 public:
     /* Customer:
     * the constructor of the Customer class, takes the following parameters:
     * - the customer's name (reference to const string), 
     * - the customer number (reference to const string).
-    */ 
-    Customer(const std::string& name, const std::string& id);
-
+    */
+    Customer(const std::string &name, const std::string &id);
 
     /* GetName:
     * returns the Customer's name as a string, takes no parameters.
     * This function should not alter the Customer object's state, in other words the function should be const.
     */
     std::string GetName() const;
-
 
     /* GetID:
     * returns the Customer's customer number as a string, takes no parameters. 
@@ -39,7 +38,6 @@ public:
     * This function should not alter the Customer object's state, in other words the function should be const.
     */
     std::vector<Book> GetLoans() const;
-
 
     /* LoanBook:
     * loans a book for the customer
@@ -67,7 +65,7 @@ public:
 private:
     std::string name_;
     std::string customer_id_;
-    std::vector<Book> loaned_books_;    
+    std::vector<Book> loaned_books_;
 };
 
 #endif

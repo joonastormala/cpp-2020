@@ -5,7 +5,8 @@
 
 #include "triple.hpp"
 
-int main() {
+int main()
+{
     // Seed the random
     srand(time(0));
 
@@ -14,14 +15,14 @@ int main() {
     {
         // Test the constructor
         std::cout << "*** Creating different kind of triples.." << std::endl;
-        Triple<int, int, int> t1(rand()%5, rand()%5, rand()%5);
-        const Triple<int, int, int>& rt1 = t1;
+        Triple<int, int, int> t1(rand() % 5, rand() % 5, rand() % 5);
+        const Triple<int, int, int> &rt1 = t1;
 
-        Triple<int, int, int> t2(rand()%5, rand()%5, rand()%5);
-        const Triple<int, int, int>& rt2 = t2;
+        Triple<int, int, int> t2(rand() % 5, rand() % 5, rand() % 5);
+        const Triple<int, int, int> &rt2 = t2;
 
-        Triple<int, double, char> t3(rand()%5, ((double)((rand()%100)+10))/17.2, (char)((rand()%91)+33));
-        const Triple<int, double, char>& rt3 = t3;
+        Triple<int, double, char> t3(rand() % 5, ((double)((rand() % 100) + 10)) / 17.2, (char)((rand() % 91) + 33));
+        const Triple<int, double, char> &rt3 = t3;
 
         // Test the accessors
         std::cout << "*** Testing the accessors (First, Second, and Third).." << std::endl;
@@ -51,7 +52,7 @@ int main() {
         std::cout << "F: " << t2.First() << " S: " << t2.Second() << " T: " << t2.Third() << std::endl;
         std::cout << "F: " << at3.First() << " S: " << at3.Second() << " T: " << at3.Third() << std::endl;
         std::cout << "*** END OF READ ***" << std::endl;
-        
+
         // Test the IsHomogenous function
         std::cout << "*** Testing your IsHomogenous function.." << std::endl;
         std::cout << "The IsHomogenous function returned: " << (IsHomogenous(rt1) ? "yes" : "no") << std::endl;
@@ -62,16 +63,16 @@ int main() {
     {
         // Test the ==, !=, and << -operators
         std::cout << "*** Creating different kind of triples.." << std::endl;
-        Triple<int, int, int> t1(rand()%5, rand()%5, rand()%5);
-        const Triple<int, int, int>& rt1 = t1;
+        Triple<int, int, int> t1(rand() % 5, rand() % 5, rand() % 5);
+        const Triple<int, int, int> &rt1 = t1;
 
-        Triple<int, int, int> t2(rand()%5, rand()%5, rand()%5);
-        const Triple<int, int, int>& rt2 = t2;
+        Triple<int, int, int> t2(rand() % 5, rand() % 5, rand() % 5);
+        const Triple<int, int, int> &rt2 = t2;
 
-        Triple<int, double, char> t3(rand()%5, ((double)((rand()%100)+10))/17.2, (char)((rand()%91)+33));
-        const Triple<int, double, char>& rt3 = t3;
-        Triple<int, double, char> t4(rand()%5, ((double)((rand()%100)+10))/17.2, (char)((rand()%91)+33));
-        const Triple<int, double, char>& rt4 = t4;
+        Triple<int, double, char> t3(rand() % 5, ((double)((rand() % 100) + 10)) / 17.2, (char)((rand() % 91) + 33));
+        const Triple<int, double, char> &rt3 = t3;
+        Triple<int, double, char> t4(rand() % 5, ((double)((rand() % 100) + 10)) / 17.2, (char)((rand() % 91) + 33));
+        const Triple<int, double, char> &rt4 = t4;
 
         // Test the << -operator
         std::cout << "*** Printing the triples, using the << -operator.." << std::endl;
@@ -83,14 +84,14 @@ int main() {
 
         // Test the == -operator
         std::cout << "*** Testing the == -operator, comparing triples.." << std::endl;
-        std::cout << "Are the triples equal: " << (rt1==rt2 ? "yes" : "no") << std::endl;
-        std::cout << "Are the triples equal: " << (rt3==rt4 ? "yes" : "no") << std::endl;
+        std::cout << "Are the triples equal: " << (rt1 == rt2 ? "yes" : "no") << std::endl;
+        std::cout << "Are the triples equal: " << (rt3 == rt4 ? "yes" : "no") << std::endl;
         std::cout << "*** END OF READ ***" << std::endl;
 
         // Test the != -operator
         std::cout << "*** Testing the != -operator, comparing triples.." << std::endl;
-        std::cout << "Are the triples inequal: " << (rt1!=rt2 ? "yes" : "no") << std::endl;
-        std::cout << "Are the triples inequal: " << (rt3!=rt4 ? "yes" : "no") << std::endl;
+        std::cout << "Are the triples inequal: " << (rt1 != rt2 ? "yes" : "no") << std::endl;
+        std::cout << "Are the triples inequal: " << (rt3 != rt4 ? "yes" : "no") << std::endl;
         std::cout << "*** END OF READ ***" << std::endl;
     }
 
